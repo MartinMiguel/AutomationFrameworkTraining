@@ -2,6 +2,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
+using TestAutomationFramework.Pages;
 
 namespace TestAutomationFramework
 {
@@ -27,6 +28,20 @@ namespace TestAutomationFramework
             Driver.Close();
             Console.WriteLine("Test");
             Assert.Pass();
+        }
+
+        [Test]
+        public void LoginTest()
+        {
+            Driver.Navigate().GoToUrl("http://eaapp.somee.com/");
+
+            HomePage homePO = new HomePage();
+            LoginPage loginPO = new LoginPage();
+
+            homePO.ClickLogin();
+            loginPO.EnterUserNameAndPassword("admin", "password");
+            loginPO.ClickLogin();
+            Assert.That(homePO.IsLogOffExist(), Is.True, "Log off button did not displayed");
         }
     }
 }
