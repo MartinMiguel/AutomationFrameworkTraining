@@ -1,11 +1,8 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TestAutomationFramework.Pages
 {
-    public class LoginPage : DriverHelper
+    public class LoginPO : DriverHelper
     {
         IWebElement btnLogin => Driver.FindElement(By.XPath("//input[contains(@class, 'btn')]"));
 

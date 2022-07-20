@@ -1,12 +1,10 @@
 ﻿Feature: Login
-	Check if login functionality works
+	User login to home test
 
 @Login
 Scenario: Login user as Administrator
 	Given I navigate to application
-	And I click the login link
-	When I enter username and password
-		| UserName | Password |
-		| admin    | admin    |
-	And I click login
+	And I click login link
+	When I provide "admin" and "password"
+	And I click login button
 	Then I should see user logged in the application
